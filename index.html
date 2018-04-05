@@ -2,28 +2,37 @@
 <html>
     <head>
         <meta charset="UTF-8">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto|Ubuntu" rel="stylesheet">
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+        <link href="/css/login.css" rel="stylesheet" type="text/css">
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-115509114-1"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'UA-115509114-1');
+        </script>
         <link href="//cdn.rawgit.com/rohitkrai03/pills/gh-pages/dist/pills.min.css" rel="stylesheet" type="text/css">
         <link href="//code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet" type="text/css">
-        <script src="//www.gstatic.com/firebasejs/ui/live/0.4/firebase-ui-auth.js"></script>
-        <link type="text/css" rel="stylesheet" href="//www.gstatic.com/firebasejs/ui/live/0.4/firebase-ui-auth.css">
-        <link rel="shortcut icon" href="/favicon.png">
         <link href="css/index.css" rel="stylesheet" type="text/css">
-        <title>Copilot Volunteer</title>
+        <title>Application Reader</title>
     </head>
     <body>
 
         <!-- Main tool bar -->
         <div id="caseTitle" class="title">
-          <span id="team_name">Copilot</span><br />
-          <div class="indicator"></div>
-          <span id="user_name"></span>
+          <img id="team_name" src="img/logo.svg"/>
         </div>
         <div class="title" id="currentCaseDisplayName">
           <div id="logOut">Sign Out</div>
-          <span id="name">Cases</span><br />
+          <span id="name">Applicant: 7443189458</span><br />
           <span class="info">
             <span id="gender"></span>
-            <span id="warning">— Confidential</span>
+            <span id="org">School: UC Berkeley</span>
           </span>
         </div>
 

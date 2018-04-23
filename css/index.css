@@ -145,3 +145,44 @@ em {
   font-size: 13pt;
   color: white;
 }
+
+input.lr {
+    display: block;
+    margin: 10px;
+    background-color: rgba(0,0,0,0.1);
+    border: none;
+    color: white;
+    font-size: 16pt;
+    padding: 10px;
+}
+
+input.lr::placeholder {
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 16pt;
+    color: white;
+}
+
+input[type="submit"].lr {
+    height: 50px;
+    background-color: white;
+    border: none;
+    border-radius: 10px;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 16pt;
+    font-weight: bold;
+    color: #d53d6c;
+    cursor: pointer;
+}
+
+input[disabled].lr {
+    opacity: 0.5;
+}
+
+#forgot {
+    text-align: center;
+    width: 100%;
+    font-size: 12pt;
+    padding-top: 10px;
+    color: white;
+    text-decoration: none;
+}

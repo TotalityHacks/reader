@@ -25,7 +25,6 @@
     <img id="logo" src="/img/logo.svg"/>
   </div>
   <div id="currentApp" class="title">
-    <div id="logOut">Log In</div>
     <span id="name"></span><br />
     <span class="info">
       <span id="gender"></span>
@@ -39,7 +38,14 @@
       <div class="ten columns">
         <center>
           <br /><br />
-          <iframe src="https://giphy.com/embed/l4JyOCNEfXvVYEqB2" width="100%" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+          <form id="login_form" class="lr" >
+              <div id="login_error" class="form_error"></div>
+              <label id="login_email_error" for="login_email" class="form_error"></label>
+              <input type="text" name="email" id="login_email" class="lr" placeholder="Email"/>
+              <label id="login_password_error" for="login_password" class="form_error"></label>
+              <input type="password" name="password" id="login_password" class="lr" placeholder="Password"/>
+              <input type="submit" name="login" class="lr" value="Login"/>
+          </form>
         </center>
       </div>
     </div>
@@ -47,6 +53,6 @@
 
   <!-- Additional scripts -->
   <script src="//ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-  <script src="/js/main.js"></script>
+  <script src="/js/login.js"></script>
 </body>
 </html>

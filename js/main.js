@@ -27,6 +27,13 @@ function getApplication() {
 
 function load() {
   $("#idVal").text(application.id)
+  $("#ghUsername").text(application.github_username)
+  for (var i = 0; i < application.questions.length; i++) {
+    $("#container").append(`<div class="question">
+      <h3>${application.questions[i][0]}</h3>
+      <p>${application.questions[i][1].replaceAll(/\n/g, '<br />')}</p>
+    </div>`)
+  }
 }
 
 function logout() {
@@ -41,3 +48,8 @@ $(document).ready(() => {
     window.location = "/login"
   getApplication()
 })
+
+String.prototype.replaceAll = function(search, replacement) {
+    var target = this;
+    return target.split(search).join(replacement);
+};

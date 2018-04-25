@@ -186,3 +186,19 @@ input[disabled].lr {
     color: white;
     text-decoration: none;
 }
+
+.question {
+  padding: 20px;
+  border: 1px solid #e60c88;
+}
+
+.question h3 {
+  margin-bottom: 7px;
+  font-size: 13pt;
+}
+
+.question p {
+  margin: 0;
+  font-size: 10pt;
+  line-height: 140%;
+}

@@ -25,6 +25,27 @@ function getApplication() {
   });
 }
 
+function submitReview() {
+  var params = {
+        application_id: application.id,
+        user_rating: parseInt($('#rating').val(), 10),
+        comments: $('#comments').val()
+  };
+  $.ajax({
+    type:"POST",
+    url: HOST + "/reader/rating/",
+    dataType: "json",
+    data: JSON.stringify(params),
+    beforeSend: function(xhr) {
+        xhr.setRequestHeader("Authorization", "Token " + AUTH_TOKEN);
+    }
+  }).done(function(data) {
+    console.log(data)
+  }).fail(function(data) {
+    console.log(data.responseText)
+  });
+}
+
 function load() {
   $("#idVal").text(application.id)
   $("#ghUsername").text(application.github_username)
@@ -42,6 +63,7 @@ function logout() {
 }
 
 $('#logOut').click(logout);
+$('#submitReview').click(submitReview);
 
 $(document).ready(() => {
   if (AUTH_TOKEN == null)

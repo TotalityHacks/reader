@@ -178,6 +178,14 @@ input[disabled].lr {
     opacity: 0.5;
 }
 
+input:focus {
+  outline: 0;
+}
+
+textarea:focus {
+  outline: 0;
+}
+
 #forgot {
     text-align: center;
     width: 100%;
@@ -190,6 +198,7 @@ input[disabled].lr {
 .question {
   padding: 20px;
   border: 1px solid #e60c88;
+  font-family: 'Open Sans';
 }
 
 .question h3 {
@@ -201,4 +210,34 @@ input[disabled].lr {
   margin: 0;
   font-size: 10pt;
   line-height: 140%;
+}
+
+#feedback {
+  font-size: 11pt;
+  line-height: 160%;
+}
+
+#feedback h2 {
+  color: #e60c88;
+  font-size: 15pt;
+}
+
+#feedback input[type="text"] {
+  color: white;
+  background: black;
+  border: 0;
+  border-bottom: 1px solid #e60c88;
+  font-size: 14pt;
+  width: 50px;
+}
+
+#comments {
+  font-size: 12pt;
+  color: white;
+  width: 100%;
+  resize: none;
+  height: 100px;
+  background: black;
+  border: 0;
+  border-bottom: 1px solid #e60c88;
 }

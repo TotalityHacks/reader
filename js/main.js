@@ -27,20 +27,21 @@ function getApplication() {
 
 function submitReview() {
   var params = {
-        application_id: application.id,
-        user_rating: parseInt($('#rating').val(), 10),
-        comments: $('#comments').val()
+        "application": application.id,
+        "rating_number": parseInt($('#rating').val(), 10),
+        "comments": $('#comments').val()
   };
   $.ajax({
     type:"POST",
     url: HOST + "/reader/rating/",
     dataType: "json",
-    data: JSON.stringify(params),
+    data: params,
     beforeSend: function(xhr) {
         xhr.setRequestHeader("Authorization", "Token " + AUTH_TOKEN);
     }
   }).done(function(data) {
     console.log(data)
+    window.location = "/"
   }).fail(function(data) {
     console.log(data.responseText)
   });

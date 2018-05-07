@@ -1,149 +1,80 @@
-@import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.css");
+@import url('https://fonts.googleapis.com/css?family=Ubuntu:300,400,700|Open+Sans:300,400');
+
+::-webkit-scrollbar {
+    width: 2px;
+}
+::-webkit-scrollbar-thumb {
+    background-color: #e60c88;
+}
 
 html {
-    /* overflow: hidden; */
-    /* height: 100%; */
+    margin: 0;
 }
 
 body {
-    font-family: "Open Sans", sans-serif;
-    font-weight: 300;
-    height: 100%;
-    width: 100%;
-    padding: 0;
-    background-color: #2d3436;
+    color: white;
+    font-family: 'Ubuntu', sans-serif;
+    margin: 0;
+    background: linear-gradient(#F05A2A,#E60C88);
+    min-width: 100vw;
+    min-height: 100vh;
 }
 
-section {
+body > div {
+    display: none;
+}
+
+#no_js {
+    position: relative;
     margin: 0 auto;
+    width: 80vw;
 }
 
-h1 {
-    font-size: 4rem;
-    line-height: 1.5;
-    margin-bottom: 10px;
+#form_container {
+    display: none;
 }
 
-h3 {
-    color: #999;
-    font-size: 1.25rem;
+#login_registration {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100vw;
+    min-height: 95vh;
 }
 
-a {
-    text-decoration: inherit;
-    color: #87ceeb;
+#login_registration form {
+    display: flex;
+    flex-direction: column;
+    width: 325px;
 }
 
-a:hover {
-    color: #549bb8;
+#lr_logo {
+    width: 90%;
+    margin-top: 20vh;
+    max-width: 500px;
+    margin-bottom: 5vh;
+    height: 10vh;
 }
 
-footer {
-    color: #999;
-    font-size: .75rem;
-    text-align: center;
-    height: 40px;
-    width: 100%;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    margin-top: -40px;
+#login_selector {
+    font-size: 18pt;
+    margin: 10px;
 }
 
-p {
-    margin: 0 10%;
+a.selector {
+    padding: 10px;
+    font-weight: 100;
+    color: white;
+    text-decoration: none;
 }
 
-em {
-    color: #f33;
+a.selector.selected {
+    font-weight: bold;
 }
 
-#header {
-  width: 220px;
-  height: 62px;
-  position:absolute;
-  left:0;
-  top:0;
-  border-bottom: 2px solid rgb(235, 50, 90);
-  font-weight: 700;
-  text-align: left;
-  padding-left: 20px;
-  color: #FFF;
-}
-
-#currentApp {
-  width: calc(100% - 220px);
-  width: -webkit-calc(100% - 220px);
-  height: 62px;
-  position: absolute;
-  right: 0;
-  top:0 ;
-  color: #333;
-  font-weight: 500;
-  text-align: left;
-  padding-left: 20px;
-  border-bottom: 2px solid rgb(235, 50, 90);
-}
-
-#name {
-  color: #eee;
-  white-space: nowrap;
-  overflow: hidden;
-}
-
-#org {
-  font-weight: 400;
-  color: #999;
-  white-space: nowrap;
-  overflow: hidden;
-}
-
-#logOut {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  font-size: 10pt;
-  border-radius: 1px;
-  padding: 10px 15px 10px 15px;
-  font-family: 'Open Sans', sans-serif;
-  border: 1px solid rgb(235, 50, 90);
-  background-color: rgb(235, 50, 90);
-  color: white;
-  font-weight: bold;
-}
-
-#logOut:hover {
-  cursor:pointer;
-  background-color: rgb(215, 30, 70)
-}
-
-#logo {
-  width: 95%;
-}
-
-.info {
-  font-weight: 300;
-  font-size: 11pt;
-}
-
-.title {
-  border-bottom: 0px;
-  text-align: center;
-  font-family: "Ubuntu";
-  font-size: 14pt;
-  height: 60px;
-  background: #000;
-  padding-top: 12px!important;
-  padding-bottom: 15px!important;
-  line-height: 110%;
-}
-
-.content {
-  margin-top: 60px;
-  height: calc(100% - 60px);
-  height: -webkit-calc(100% - 60px);
-  font-size: 13pt;
-  color: white;
+.form_error {
+    display: block;
+    margin-left: 10px;
 }
 
 input.lr {
@@ -178,14 +109,6 @@ input[disabled].lr {
     opacity: 0.5;
 }
 
-input:focus {
-  outline: 0;
-}
-
-textarea:focus {
-  outline: 0;
-}
-
 #forgot {
     text-align: center;
     width: 100%;
@@ -195,49 +118,159 @@ textarea:focus {
     text-decoration: none;
 }
 
-.question {
-  padding: 20px;
-  border: 1px solid #e60c88;
-  font-family: 'Open Sans';
+#application {
+    margin: 0 auto;
+    width: 90vw;
+    min-height: 95vh;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    align-items: center;
 }
 
-.question h3 {
-  margin-bottom: 7px;
-  font-size: 13pt;
+#header {
+    width: 80vw;
+    max-width: 1000px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 38pt;
+    font-weight: lighter;
+    font-family: 'Ubuntu', sans-serif;
+    font-variant: small-caps;
+    display: flex;
+    justify-content: flex-start;
 }
 
-.question p {
-  margin: 0;
-  font-size: 10pt;
-  line-height: 140%;
+#sun {
+    max-height: 1.5em;
+    margin: 0 0px 0 20px;
 }
 
-#feedback {
-  font-size: 11pt;
-  line-height: 160%;
+#page_title {
+    margin: 8px 20px;
 }
 
-#feedback h2 {
+#last_saved {
+    margin: 0 0 0 auto;
+    font-weight: 300;
+    font-size: 12pt;
+    font-variant: normal;
+    align-self: flex-end;
+}
+
+#logout {
+    margin: 0 20px 0 10px;
+    display: inline;
+    font-size: 12pt;
+    align-self: flex-end;
+    font-variant: normal;
+    color: white;
+}
+
+#application_form {
+    background-color: white;
+    width: 80vw;
+    max-width: 1000px;
+    padding: 10px 10px 10px 10px;
+    margin-bottom: 20px;
+    color: black;
+}
+
+#personal_info > span {
+    display: block;
+    font-family: 'Ubuntu';
+    font-size: 16pt;
+    color: #666;
+}
+
+#personal_info > span#name, span#school{
   color: #e60c88;
-  font-size: 15pt;
 }
 
-#feedback input[type="text"] {
-  color: white;
-  background: black;
-  border: 0;
-  border-bottom: 1px solid #e60c88;
-  font-size: 14pt;
-  width: 50px;
-}
-
-#comments {
-  font-size: 12pt;
-  color: white;
-  width: 100%;
+#essays > textarea {
   resize: none;
-  height: 100px;
-  background: black;
-  border: 0;
-  border-bottom: 1px solid #e60c88;
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 10px 15px 10px 15px;
+  font-size: 12pt;
+  font-family: 'Open Sans';
+  font-weight: 300;
+  height: 180px;
+}
+
+textarea:focus {
+  outline: none;
+}
+
+.page {
+    display:flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    color: black;
+    margin-bottom: 10px;
+}
+
+.wrapper {
+    width: 40%;
+    min-width: 200px;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.wrapper.essay {
+    width: 100%;
+}
+
+input.app, textarea.app {
+    width: 95%;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 14pt;
+    padding: 5px 10px;
+}
+
+textarea.app {
+    min-height: 200px;
+}
+
+label.app {
+    color: #E60C88;
+    display: block;
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: bold;
+    margin-bottom: 10px;
+    font-size: 14pt;
+}
+
+#buttons {
+    display: flex;
+    justify-content: space-around;
+}
+
+#buttons input {
+    width: 150px;
+    height: 50px;
+    background-color: white;
+    border: 2px solid #E60C88;
+    border-radius: 10px;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 16pt;
+    font-weight: bold;
+    color: #E60C88;
+    cursor: pointer;
+}
+
+.app label::after {
+    transition: 1s;
+    content: "(Required)";
+    color: red;
+    font-size: 12pt;
+    margin-left: 10px;
+    opacity: 0;
+}
+
+.app.required label::after {
+    opacity: 1;
 }

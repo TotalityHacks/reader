@@ -1,61 +1,53 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-<head>
-  <meta charset="UTF-8">
-  <meta name=viewport content="initial-scale=1, minimum-scale=1, width=device-width">
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto|Ubuntu" rel="stylesheet">
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-115509114-1"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
+    <head>
+        <title>Reader</title>
+        <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/pills/1.0.1/pills.min.css"/>
+        <link rel="stylesheet" type="text/css" href="css/index.css"/>
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+    </head>
+    <body>
+        <div id="no_js">
+            <a id="lr_logo" href="#"><img src="img/svg-white.svg" alt="Totality Logo"/></a>
+            You must have JavaScript enabled to use the TotalityHacks registration system.
+            <br/>
+            If you cannot use JavaScript, please contact <a href="mailto:hello@totalityhacks.com">hello@totalityhacks.com</a> for assistance.
+        </div>
 
-    gtag('config', 'UA-115509114-1');
-  </script>
-  <link href="//cdn.rawgit.com/rohitkrai03/pills/gh-pages/dist/pills.min.css" rel="stylesheet" type="text/css">
-  <link href="css/index.css" rel="stylesheet" type="text/css">
-  <title>Application Reader</title>
-</head>
-<body>
-  <div id="header" class="title">
-    <img id="logo" src="img/logo.svg"/>
-  </div>
-  <div id="currentApp" class="title">
-    <div id="logOut">Sign Out</div>
-    <span id="name">Applicant: <span id="idVal"></span></span><br />
-    <span class="info">
-      <span id="gender"></span>
-      <span id="org">GitHub: <span id="ghUsername"></span></span>
-    </span>
-  </div>
+        <div id="application">
+            <div id="header">
+                <a href="#"><img id="sun" src="img/totality-sun white.png" alt="Totality Sun Logo"/></a>
+                <span id="page_title">Reader</span>
+                <span id="last_saved">10 applications read.</span>
+                <a id="logout" href="#" style="display:block">Log Out.</a>
+            </div>
+            <form id="application_form" class="row">
+                <div class="one-third column" id="personal_info">
+                  <span id="name">Name</span>
+                  <span id="school">School</span>
+                  <span id="year">Year</span>
+                  <span id="phone">(314) 159-2654</span>
+                  <span id="shirt_size">T-Shirt Size</span>
+                  <br />
+                  <span id="github">GitHub</span>
+                  <span id="devpost">DevPost</span>
+                  <span id="linkedin">LinkedIn</span>
+                  <span id="website">Personal website</span>
+                  <span id="resume">Resume Link</span>
+                  <span id="num_hackathons"># hackathons attended</span>
+                </div>
+                <div class="two-thirds column" id="essays">
+                  <textarea disabled>Long Question 1</textarea>
+                  <textarea disabled>Long Question 2</textarea>
+                  <textarea disabled>Long Question 3</textarea>
+                </div>
+            </form>
+        </div>
 
-  <div class="content">
-    <div class="row">
-      <div class="one columns"></div>
-      <div class="ten columns" id="container">
-
-      </div>
-    </div>
-    <div class="row">
-      <div class="one columns"></div>
-      <div class="ten columns" id="feedback">
-        <h2>Review</h2>
-        Application Rating:<br />
-        <input type="text" id="rating" maxlength="2"/><br /><br />
-        Comments:<br />
-        <textarea id="comments"></textarea><br />
-
-        <center><input type="submit" name="login" class="lr" id="submitReview" value="Submit Review"/></center>
-      </div>
-    </div>
-  </div>
-
-  <!-- Additional scripts -->
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-  <script src="js/main.js"></script>
-</body>
+        <script
+        src="https://code.jquery.com/jquery-3.2.1.min.js"
+        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous"></script>
+        <script src="js/main.js"></script>
+    </body>
 </html>

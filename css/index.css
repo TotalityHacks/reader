@@ -113,6 +113,34 @@ input[type="text"]:focus {
   outline: none;
 }
 
+.btn {
+    font-family: 'Ubuntu', 'Open Sans', Arial, sans-serif;
+    font-weight: 500;
+    color: white!important;
+    padding: 10px;
+    height: 45px;
+    background-color: #E60C88;
+    font-size: 16pt;
+    width: 260px;
+    border: 0;
+    border-radius: 10px;
+    text-decoration: none;
+}
+
+.btn:active {
+    background-color: #91486d;
+}
+
+.btn:focus {
+    outline:none;
+}
+
+#submit {
+    width: 100%;
+    margin: 40px auto;
+    display: block;
+}
+
 #forgot {
     text-align: center;
     width: 100%;
@@ -182,6 +210,10 @@ input[type="text"]:focus {
 
 #application_form > div {
     margin-top: 10px;
+}
+
+#personal_info {
+    padding-right: 20px;
 }
 
 #personal_info > span {

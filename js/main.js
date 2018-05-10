@@ -4,7 +4,6 @@
   * April 2018
 */
 
-const HOST = 'https://madras-test.herokuapp.com'
 const AUTH_TOKEN = localStorage.getItem('token')
 
 let application = {}

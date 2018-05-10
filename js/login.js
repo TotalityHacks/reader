@@ -4,8 +4,6 @@
   * April 2018
 */
 
-const HOST = 'https://madras-test.herokuapp.com'
-
 function login(e) {
     if (e) e.preventDefault();
     var form = $('#login_form');

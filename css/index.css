@@ -77,6 +77,17 @@ a.selector.selected {
     margin-left: 10px;
 }
 
+#login_form {
+    position: absolute;
+    top: 0;
+    bottom: 200px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 300px;
+    height: 300px;
+}
+
 input.lr {
     display: block;
     margin: 10px;
@@ -85,6 +96,12 @@ input.lr {
     color: white;
     font-size: 16pt;
     padding: 10px;
+    width: 100%;
+}
+
+input.lr:focus {
+    text-decoration: none;
+    outline: none;
 }
 
 input.lr::placeholder {

@@ -48,8 +48,7 @@ function submitReview() {
 }
 
 function load() {
-  $("#idVal").text(application.id)
-  $("#ghUsername").text(application.github_username)
+  $("#github").text(`@${application.github_username}`)
   for (var i = 0; i < application.questions.length; i++) {
     $("#container").append(`<div class="question">
       <h3>${application.questions[i][0]}</h3>
@@ -63,7 +62,7 @@ function logout() {
     window.location = '/login';
 }
 
-$('#logOut').click(logout);
+$('#logout').click(logout);
 $('#submitReview').click(submitReview);
 
 $(document).ready(() => {

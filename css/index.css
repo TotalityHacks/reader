@@ -80,9 +80,9 @@ a.selector.selected {
 #login_form {
     position: absolute;
     top: 0;
-    bottom: 200px;
+    bottom: 80px;
     left: 0;
-    right: 0;
+    right: 20px;
     margin: auto;
     width: 300px;
     height: 300px;

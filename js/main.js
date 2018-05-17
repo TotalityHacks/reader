@@ -7,6 +7,7 @@
 const AUTH_TOKEN = localStorage.getItem('token')
 
 let application = {}
+var listener = new window.keypress.Listener();
 
 function getApplication() {
   $.ajax({
@@ -21,14 +22,16 @@ function getApplication() {
     load()
   }).fail(function(data) {
     console.log(data.responseText)
+    $("textarea").val(JSON.parse(data.responseText).error)
   });
 }
 
 function submitReview() {
   var params = {
         "application": application.id,
-        "rating_number": parseInt($('#rating').val(), 10),
-        "comments": $('#comments').val()
+        "field_skill": parseInt($('#skill').val(), 10),
+        "field_community": parseInt($('#community').val(), 10),
+        "field_passion": parseInt($('#passion').val(), 10)
   };
   $.ajax({
     type:"POST",
@@ -74,3 +77,20 @@ String.prototype.replaceAll = function(search, replacement) {
     var target = this;
     return target.split(search).join(replacement);
 };
+
+// Keyboard shortcut handlers
+listener.simple_combo("shift a", function() {
+  $("#skill").focus()
+});
+
+listener.simple_combo("shift s", function() {
+  $("#community").focus()
+});
+
+listener.simple_combo("shift d", function() {
+  $("#passion").focus()
+});
+
+listener.simple_combo("shift enter", function() {
+  submitReview()
+});

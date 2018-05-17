@@ -278,6 +278,11 @@ textarea:focus {
     padding: 5px 7px;
     margin-right: 10px;
     color: #e60c88;
+    border: 1px solid #ddd;
+}
+
+.criterion > input[type="text"]:focus {
+    border: 1px solid #e60c88;
 }
 
 .page {

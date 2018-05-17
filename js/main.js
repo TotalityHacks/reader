@@ -17,8 +17,8 @@ function getApplication() {
     beforeSend: function(xhr) {
         xhr.setRequestHeader("Authorization", "Token " + AUTH_TOKEN);
     }
-  }).done(function(data) {
-    application = data
+  }).done(function(res) {
+    application = process(res)
     load()
   }).fail(function(data) {
     console.log(data.responseText)
@@ -50,18 +50,46 @@ function submitReview() {
 }
 
 function load() {
-  $("#github").text(`@${application.github_username}`)
-  for (var i = 0; i < application.questions.length; i++) {
-    $("#container").append(`<div class="question">
-      <h3>${application.questions[i][0]}</h3>
-      <p>${application.questions[i][1].replaceAll(/\n/g, '<br />')}</p>
-    </div>`)
-  }
+  $("#github").text(`@${application.github}`)
+  $("#devpost").text(`@${application.devpost}`)
+  $("#linkedin").text(`@${application.linkedin}`)
+  $("#website").text(`@${application.website}`)
+  $("#num_hackathons").text(`${application.num_hackathons} hackathons attended`)
+
+  $("#name").text(`${application.name}`)
+  $("#school").text(`${application.school}`)
+  $("#year").text(`Class of ${application.grad_year}`)
+  $("#phone").text(`${application.phone}`)
+  $("#question1").text(`${application.question1}`)
+  $("#question1").text(`${application.question1}`)
+  $("#question2").text(`${application.question2}`)
+
 }
 
 function logout() {
     localStorage.removeItem('token');
     window.location = '/login';
+}
+
+function process(app) {
+  let mappings = [["name", "Name"],
+                  ["school", "School"],
+                  ["devpost", "Devpost"],
+                  ["linkedin", "LinkedIn"],
+                  ["phone", "Phone Number"],
+                  ["website", "Personal Website"],
+                  ["num_hackathons", "How many hackathons have you attended?"],
+                  ["grad_year", "College Graduation Year"],
+                  ["question1", "Tell us about a project you’re proud of (hackathon, personal project, job, research, etc)."],
+                  ["question2", "Tell us about a time you helped another with programming."]
+                 ]
+  var data = {
+    "github": app.github_username
+  }
+  for (m in mappings) {
+    data[mappings[m][0]] = app.questions.filter(x => x[0] == mappings[m][1])[0][1]
+  }
+  return data
 }
 
 $('#logout').click(logout);

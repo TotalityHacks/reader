@@ -1,1 +1,1 @@
-const HOST = 'https://madras-test.herokuapp.com'
+const HOST = 'https://api.totalityhacks.com'

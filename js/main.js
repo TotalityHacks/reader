@@ -50,10 +50,10 @@ function submitReview() {
 }
 
 function load() {
-  $("#github").text(`@${application.github}`)
-  $("#devpost").text(`@${application.devpost}`)
-  $("#linkedin").text(`@${application.linkedin}`)
-  $("#website").text(`@${application.website}`)
+  $("#github").html(`GitHub: <a target="_blank" href="https://github.com/${application.github}">@${application.github}</a>`)
+  $("#devpost").html(`Devpost: <a target="_blank" href="https://devpost.com/${application.devpost}">@${application.devpost}</a>`)
+  $("#linkedin").html(`LinkedIn: <a target="_blank" href="https://linkedin.com/in/${application.linkedin}">@${application.linkedin}</a>`)
+  $("#website").html(`<a target="_blank" href="${application.website}">${application.website}</a>`)
   $("#num_hackathons").text(`${application.num_hackathons} hackathons attended`)
 
   $("#name").text(`${application.name}`)
@@ -61,9 +61,7 @@ function load() {
   $("#year").text(`Class of ${application.grad_year}`)
   $("#phone").text(`${application.phone}`)
   $("#question1").text(`${application.question1}`)
-  $("#question1").text(`${application.question1}`)
   $("#question2").text(`${application.question2}`)
-
 }
 
 function logout() {

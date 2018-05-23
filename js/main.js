@@ -18,6 +18,7 @@ function getApplication() {
         xhr.setRequestHeader("Authorization", "Token " + AUTH_TOKEN);
     }
   }).done(function(res) {
+    console.log(res)
     application = process(res)
     load()
   }).fail(function(data) {
@@ -43,7 +44,7 @@ function submitReview() {
     }
   }).done(function(data) {
     console.log(data)
-    window.location = "/"
+  //  window.location = "/"
   }).fail(function(data) {
     console.log(data.responseText)
   });
@@ -82,6 +83,7 @@ function process(app) {
                   ["question2", "Tell us about a time you helped another with programming."]
                  ]
   var data = {
+    "id": app.id,
     "github": app.github_username
   }
   for (m in mappings) {

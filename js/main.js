@@ -44,7 +44,7 @@ function submitReview() {
     }
   }).done(function(data) {
     console.log(data)
-  //  window.location = "/"
+    window.location = "/"
   }).fail(function(data) {
     console.log(data.responseText)
   });

@@ -9,7 +9,24 @@ const AUTH_TOKEN = localStorage.getItem('token')
 let application = {}
 var listener = new window.keypress.Listener();
 
+
 function getApplication() {
+  // Get reviewer stats
+  $.ajax({
+    type:"GET",
+    url: HOST + "/reader/stats/",
+    dataType: "json",
+    beforeSend: function(xhr) {
+        xhr.setRequestHeader("Authorization", "Token " + AUTH_TOKEN)
+    }
+  }).done(function(res) {
+    $("#num_reads").text(res.num_reads)
+
+  }).fail(function(data) {
+    console.log(data.responseText)
+  });
+
+  // Get application data
   $.ajax({
     type:"GET",
     url: HOST + "/reader/next_application/",
@@ -51,6 +68,7 @@ function submitReview() {
 }
 
 function load() {
+  // Populate frontend with application information
   $("#github").html(`GitHub: <a target="_blank" href="https://github.com/${application.github}">@${application.github}</a>`)
   $("#devpost").html(`Devpost: <a target="_blank" href="https://devpost.com/${application.devpost}">@${application.devpost}</a>`)
   $("#linkedin").html(`LinkedIn: <a target="_blank" href="https://linkedin.com/in/${application.linkedin}">@${application.linkedin}</a>`)

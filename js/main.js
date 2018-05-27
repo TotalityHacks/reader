@@ -117,3 +117,11 @@ listener.simple_combo("shift d", function() {
 listener.simple_combo("shift enter", function() {
   submitReview()
 });
+
+listener.simple_combo("r", function() {
+  $("#resume").css({'display': 'block'})
+});
+
+listener.simple_combo("esc", function() {
+  $("#resume").css({'display': 'none'})
+});

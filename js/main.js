@@ -35,8 +35,7 @@ function getApplication() {
         xhr.setRequestHeader("Authorization", "Token " + AUTH_TOKEN);
     }
   }).done(function(res) {
-    console.log(res)
-    application = process(res)
+    application = res
     load()
   }).fail(function(data) {
     console.log(data.responseText)
@@ -69,45 +68,23 @@ function submitReview() {
 
 function load() {
   // Populate frontend with application information
-  $("#github").html(`GitHub: <a target="_blank" href="https://github.com/${application.github}">@${application.github}</a>`)
-  $("#devpost").html(`Devpost: <a target="_blank" href="https://devpost.com/${application.devpost}">@${application.devpost}</a>`)
-  $("#linkedin").html(`LinkedIn: <a target="_blank" href="https://linkedin.com/in/${application.linkedin}">@${application.linkedin}</a>`)
-  $("#website").html(`<a target="_blank" href="${application.website}">${application.website}</a>`)
-  $("#num_hackathons").text(`${application.num_hackathons} hackathons attended`)
+  $("#github").html(`GitHub: <a target="_blank" href="https://github.com/${application.github_username}">@${application.github_username}</a>`)
+  $("#devpost").html(`Devpost: <a target="_blank" href="https://devpost.com/${application.questions.Devpost}">@${application.questions.Devpost}</a>`)
+  $("#linkedin").html(`LinkedIn: <a target="_blank" href="https://linkedin.com/in/${application.questions.LinkedIn}">@${application.questions.LinkedIn}</a>`)
+  $("#website").html(`<a target="_blank" href="${application.questions["Personal Website"]}">${application.questions["Personal Website"]}</a>`)
+  $("#num_hackathons").text(`${application.questions["What is your race/ethnicity?"]} student`)
 
-  $("#name").text(`${application.name}`)
-  $("#school").text(`${application.school}`)
-  $("#year").text(`Class of ${application.grad_year}`)
-  $("#phone").text(`${application.phone}`)
-  $("#question1").text(`${application.question1}`)
-  $("#question2").text(`${application.question2}`)
+  $("#name").text(`${application.questions["First Name"] + " " + application.questions["Last Name"]}`)
+  $("#school").text(`${application.questions["What school do you attend?"]}`)
+  $("#year").text(`Class of ${application.questions["College Graduation Year"]}`)
+  $("#phone").text(`${application.questions["Phone Number"]}`)
+  $("#question1").text(`${application.questions["Tell us about a project you’re proud of (hackathon, personal project, job, research, etc)."]}`)
+  $("#question2").text(`${application.questions["Tell us about a time you helped another with programming."]}`)
 }
 
 function logout() {
     localStorage.removeItem('token');
     window.location = '/login';
-}
-
-function process(app) {
-  let mappings = [["name", "Name"],
-                  ["school", "School"],
-                  ["devpost", "Devpost"],
-                  ["linkedin", "LinkedIn"],
-                  ["phone", "Phone Number"],
-                  ["website", "Personal Website"],
-                  ["num_hackathons", "How many hackathons have you attended?"],
-                  ["grad_year", "College Graduation Year"],
-                  ["question1", "Tell us about a project you’re proud of (hackathon, personal project, job, research, etc)."],
-                  ["question2", "Tell us about a time you helped another with programming."]
-                 ]
-  var data = {
-    "id": app.id,
-    "github": app.github_username
-  }
-  for (m in mappings) {
-    data[mappings[m][0]] = app.questions.filter(x => x[0] == mappings[m][1])[0][1]
-  }
-  return data
 }
 
 $('#logout').click(logout);

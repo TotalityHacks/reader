@@ -67,6 +67,8 @@ function submitReview() {
 }
 
 function load() {
+  $("#skill").focus()
+
   // Populate frontend with application information
   $("#github").html(`GitHub: <a target="_blank" href="https://github.com/${application.github_username}">@${application.github_username}</a>`)
   $("#devpost").html(`Devpost: <a target="_blank" href="https://devpost.com/${application.questions.Devpost}">@${application.questions.Devpost}</a>`)
@@ -80,6 +82,8 @@ function load() {
   $("#phone").text(`${application.questions["Phone Number"]}`)
   $("#question1").text(`${application.questions["Tell us about a project you’re proud of (hackathon, personal project, job, research, etc)."]}`)
   $("#question2").text(`${application.questions["Tell us about a time you helped another with programming."]}`)
+
+  document.getElementById("resume").src = "https://gautam.cc/docs/resume.pdf#view=Fit"
 }
 
 function logout() {
@@ -102,19 +106,37 @@ String.prototype.replaceAll = function(search, replacement) {
 };
 
 // Keyboard shortcut handlers
-listener.simple_combo("shift a", function() {
-  $("#skill").focus()
-});
+var container = document.getElementById("assessment");
+container.onkeyup = function(e) {
+    var target = e.srcElement || e.target;
+    var maxLength = parseInt(target.attributes["maxlength"].value, 10);
+    var myLength = target.value.length;
+    if (myLength >= maxLength) {
+        var next = target;
+        while (next = next.nextElementSibling) {
+            if (next == null)
+                break;
+            if (next.tagName.toLowerCase() === "input") {
+                next.focus();
+                break;
+            }
+        }
+    }
+    // Move to previous field if empty (user pressed backspace)
+    else if (myLength === 0) {
+        var previous = target;
+        while (previous = previous.previousElementSibling) {
+            if (previous == null)
+                break;
+            if (previous.tagName.toLowerCase() === "input") {
+                previous.focus();
+                break;
+            }
+        }
+    }
+}
 
-listener.simple_combo("shift s", function() {
-  $("#community").focus()
-});
-
-listener.simple_combo("shift d", function() {
-  $("#passion").focus()
-});
-
-listener.simple_combo("shift enter", function() {
+listener.simple_combo("enter", function() {
   submitReview()
 });
 

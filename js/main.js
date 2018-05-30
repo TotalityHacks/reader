@@ -35,6 +35,7 @@ function getApplication() {
         xhr.setRequestHeader("Authorization", "Token " + AUTH_TOKEN);
     }
   }).done(function(res) {
+    console.log(res)
     application = res
     load()
   }).fail(function(data) {
@@ -70,18 +71,17 @@ function load() {
   $("#skill").focus()
 
   // Populate frontend with application information
-  $("#github").html(`GitHub: <a target="_blank" href="https://github.com/${application.github_username}">@${application.github_username}</a>`)
-  $("#devpost").html(`Devpost: <a target="_blank" href="https://devpost.com/${application.questions.Devpost}">@${application.questions.Devpost}</a>`)
-  $("#linkedin").html(`LinkedIn: <a target="_blank" href="https://linkedin.com/in/${application.questions.LinkedIn}">@${application.questions.LinkedIn}</a>`)
-  $("#website").html(`<a target="_blank" href="${application.questions["Personal Website"]}">${application.questions["Personal Website"]}</a>`)
-  $("#num_hackathons").text(`${application.questions["What is your race/ethnicity?"]} student`)
+  $("#github").html(`GitHub: <a target="_blank" href="https://github.com/${application.github}">@${application.github}</a>`)
+  $("#devpost").html(`Devpost: <a target="_blank" href="https://devpost.com/${application.devpost}">@${application.devpost}</a>`)
+  $("#linkedin").html(`LinkedIn: <a target="_blank" href="https://linkedin.com/in/${application.linkedin}">@${application.linkedin}</a>`)
+  $("#website").html(`<a target="_blank" href="${application.personal_website}">${application.personal_website}</a>`)
 
-  $("#name").text(`${application.questions["First Name"] + " " + application.questions["Last Name"]}`)
-  $("#school").text(`${application.questions["What school do you attend?"]}`)
-  $("#year").text(`Class of ${application.questions["College Graduation Year"]}`)
-  $("#phone").text(`${application.questions["Phone Number"]}`)
-  $("#question1").text(`${application.questions["Tell us about a project you’re proud of (hackathon, personal project, job, research, etc)."]}`)
-  $("#question2").text(`${application.questions["Tell us about a time you helped another with programming."]}`)
+  $("#name").text(`${application.first_name} ${application.last_name}`)
+  $("#school").text(`${application.school}`)
+  $("#year").text(`Class of ${application.college_grad_year}`)
+  $("#phone").text(`${formatPhoneNumber(application.phone_number)}`)
+  $("#question1").text(`${application.essay_project}`)
+  $("#question2").text(`${application.essay_helped}`)
 
   document.getElementById("resume").src = "https://gautam.cc/docs/resume.pdf#view=Fit"
 }
@@ -104,6 +104,12 @@ String.prototype.replaceAll = function(search, replacement) {
     var target = this;
     return target.split(search).join(replacement);
 };
+
+function formatPhoneNumber(s) {
+  var s2 = (""+s).replace(/\D/g, '');
+  var m = s2.match(/^(\d{3})(\d{3})(\d{4})$/);
+  return (!m) ? null : "(" + m[1] + ") " + m[2] + "-" + m[3];
+}
 
 // Keyboard shortcut handlers
 var container = document.getElementById("assessment");

@@ -46,7 +46,7 @@ function getApplication() {
 
 function submitReview() {
   var params = {
-        "application": application.id,
+        "application": application.application_id,
         "field_skill": parseInt($('#skill').val(), 10),
         "field_community": parseInt($('#community').val(), 10),
         "field_passion": parseInt($('#passion').val(), 10)

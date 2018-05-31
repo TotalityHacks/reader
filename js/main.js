@@ -68,8 +68,6 @@ function submitReview() {
 }
 
 function load() {
-  $("#skill").focus()
-
   // Populate frontend with application information
   $("#github").html(`GitHub: <a target="_blank" href="https://github.com/${application.github}">@${application.github}</a>`)
   $("#devpost").html(`Devpost: <a target="_blank" href="https://devpost.com/${application.devpost}">@${application.devpost}</a>`)
@@ -83,7 +81,9 @@ function load() {
   $("#question1").text(`${application.essay_project}`)
   $("#question2").text(`${application.essay_helped}`)
 
-  document.getElementById("resume").src = "https://gautam.cc/docs/resume.pdf#view=Fit"
+  document.getElementById("resume").src = `https://api.totalityhacks.com/application/resumes/${application.resumes[0]}#view=FitH`
+
+  $("#skill").focus()
 }
 
 function logout() {

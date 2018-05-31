@@ -147,7 +147,11 @@ listener.simple_combo("enter", function() {
 });
 
 listener.simple_combo("r", function() {
-  $("#resume").css({'display': 'block'})
+  if ($("#resume").css("display") == "none") {
+    $("#resume").css({'display': 'block'})
+  } else {
+    $("#resume").css({'display': 'none'})
+  }
 });
 
 listener.simple_combo("esc", function() {

@@ -40,6 +40,8 @@ function getApplication() {
     load()
   }).fail(function(data) {
     console.log(data.responseText)
+    $("#name").text(`Application Reader`)
+    $("#school").text(`Inbox Empty`)
     $("textarea").val(JSON.parse(data.responseText).error)
   });
 }

@@ -144,7 +144,7 @@ container.onkeyup = function(e) {
     }
 }
 
-listener.simple_combo("enter", function() {
+listener.simple_combo("meta enter", function() {
   submitReview()
 });
 

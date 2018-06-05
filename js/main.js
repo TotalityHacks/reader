@@ -76,7 +76,7 @@ function load() {
   $("#linkedin").html(`LinkedIn: <a target="_blank" href="https://linkedin.com/in/${application.linkedin}">@${application.linkedin}</a>`)
   $("#website").html(`<a target="_blank" href="${application.personal_website}">${application.personal_website}</a>`)
 
-  $("#name").text(`${application.first_name} ${application.last_name}`)
+  $("#name").text(`Application #${application.user}`)
   $("#school").text(`${application.school}`)
   $("#year").text(`Class of ${application.college_grad_year}`)
   $("#question1").text(`${application.essay_project}`)

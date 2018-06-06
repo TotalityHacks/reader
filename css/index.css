@@ -233,11 +233,33 @@ input[type="text"]:focus {
     padding-right: 20px;
 }
 
+ion-icon {
+    color: black;
+    font-size: 20pt;
+    display: inline-block;
+    vertical-align: middle;
+}
+
 #personal_info > span {
     display: block;
     font-family: 'Ubuntu';
     font-size: 16pt;
     color: #666;
+}
+
+#personal_info > .social {
+    font-family: 'Menlo';
+    font-size: 12pt;
+    vertical-align: middle;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    color: black;
+}
+
+#personal_info a {
+    text-decoration: none;
+    color: #444;
 }
 
 #personal_info > span#name, span#school{

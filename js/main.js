@@ -71,10 +71,15 @@ function submitReview() {
 
 function load() {
   // Populate frontend with application information
-  $("#github").html(`GitHub: <a target="_blank" href="https://github.com/${application.github}">@${application.github}</a>`)
-  $("#devpost").html(`Devpost: <a target="_blank" href="https://devpost.com/${application.devpost}">@${application.devpost}</a>`)
-  $("#linkedin").html(`LinkedIn: <a target="_blank" href="https://linkedin.com/in/${application.linkedin}">@${application.linkedin}</a>`)
-  $("#website").html(`<a target="_blank" href="${application.personal_website}">${application.personal_website}</a>`)
+  Object.keys(application).forEach((item) => {
+    if (application[item] == "")
+      $(`#${item}`).css({'display': 'none'})
+  });
+
+  $("#github").html(`<a target="_blank" href="https://github.com/${application.github}"><ion-icon name="logo-github"></ion-icon> @${application.github}</a>`)
+  $("#devpost").html(`<a target="_blank" href="https://devpost.com/${application.devpost}"><ion-icon name="code"></ion-icon> @${application.devpost}</a>`)
+  $("#linkedin").html(`<a target="_blank" href="https://linkedin.com/in/${application.linkedin}"><ion-icon name="logo-linkedin"></ion-icon> @${application.linkedin}</a>`)
+  $("#website").html(`<a target="_blank" href="${application.personal_website}"><ion-icon name="link"></ion-icon> ${application.personal_website}</a>`)
 
   $("#name").text(`Application #${application.user}`)
   $("#school").text(`${application.school}`)

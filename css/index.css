@@ -256,6 +256,15 @@ input[type="text"]:focus {
     border: 1px solid #ccc;
 }
 
+#essays > span {
+    background-color: #aaa;
+    color: white;
+    text-transform: uppercase;
+    font-size: 9pt;
+    padding: 4px 6px 6px 6px;
+    line-height: 180%;
+}
+
 textarea:focus {
     outline: none;
 }

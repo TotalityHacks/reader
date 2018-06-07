@@ -8,4 +8,6 @@ Application reader.
 
 ```r```: Toggles full screen view of resume.
 
+```w```: Toggles full screen view of personal website.
+
 ```Esc```: Escapes full screen view of resume or any other page.

@@ -128,6 +128,10 @@ function load() {
   else
     document.getElementById("resume").src = `/404.html`
 
+  if (application.personal_website.length != 0)
+    document.getElementById("web").src = application.personal_website
+  else
+    document.getElementById("web").src = `/404.html`
 
   $("#skill").focus()
 }
@@ -192,22 +196,37 @@ listener.simple_combo("enter", function() {
   // do nothing
 });
 
+// Submit an application
 listener.simple_combo("meta enter", function() {
   $("#submit").click()
 });
 
+// Skip an application
 listener.simple_combo("meta right", function() {
   $("#skip").click()
 });
 
+// Toggle resume full screen view
 listener.simple_combo("r", function() {
   if ($("#resume").css("display") == "none") {
+    $("iframe").css({'display': 'none'})
     $("#resume").css({'display': 'block'})
   } else {
     $("#resume").css({'display': 'none'})
   }
 });
 
+// Toggle personal website full screen view
+listener.simple_combo("w", function() {
+  if ($("#web").css("display") == "none") {
+    $("iframe").css({'display': 'none'})
+    $("#web").css({'display': 'block'})
+  } else {
+    $("#web").css({'display': 'none'})
+  }
+});
+
+// Escape any expanded iframe view
 listener.simple_combo("esc", function() {
-  $("#resume").css({'display': 'none'})
+  $("iframe").css({'display': 'none'})
 });

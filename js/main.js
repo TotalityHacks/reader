@@ -76,10 +76,20 @@ function load() {
       $(`#${item}`).css({'display': 'none'})
   });
 
-  $("#github").html(`<a target="_blank" href="https://github.com/${application.github}"><ion-icon name="logo-github"></ion-icon> @${application.github}</a>`)
-  $("#devpost").html(`<a target="_blank" href="https://devpost.com/${application.devpost}"><ion-icon name="code"></ion-icon> @${application.devpost}</a>`)
-  $("#linkedin").html(`<a target="_blank" href="https://linkedin.com/in/${application.linkedin}"><ion-icon name="logo-linkedin"></ion-icon> @${application.linkedin}</a>`)
-  $("#website").html(`<a target="_blank" href="${application.personal_website}"><ion-icon name="link"></ion-icon> ${application.personal_website}</a>`)
+  application.personal_website = application.personal_website.isUrl() ? application.personal_website : 'http://' + application.personal_website
+
+  $("#github").html(`<a target="_blank" href="https://github.com/${application.github}">
+                      <ion-icon name="logo-github"></ion-icon> @${application.github}
+                     </a>`)
+  $("#devpost").html(`<a target="_blank" href="https://devpost.com/${application.devpost}">
+                      <ion-icon name="code"></ion-icon> @${application.devpost}
+                      </a>`)
+  $("#linkedin").html(`<a target="_blank" href="https://linkedin.com/in/${application.linkedin}">
+                        <ion-icon name="logo-linkedin"></ion-icon> @${application.linkedin}
+                       </a>`)
+  $("#website").html(`<a target="_blank" href="${application.personal_website}">
+                        <ion-icon name="link"></ion-icon> ${application.personal_website}
+                      </a>`)
 
   $("#name").text(`Application #${application.user}`)
   $("#school").text(`${application.school}`)
@@ -110,6 +120,11 @@ String.prototype.replaceAll = function(search, replacement) {
     var target = this;
     return target.split(search).join(replacement);
 };
+
+String.prototype.isUrl = function() {
+   var regexp = /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/
+   return regexp.test(this);
+}
 
 // Keyboard shortcut handlers
 var container = document.getElementById("assessment");

@@ -46,6 +46,26 @@ function getApplication() {
   });
 }
 
+function skip() {
+  var params = {
+        "application": application.application_id
+  };
+  $.ajax({
+    type:"POST",
+    url: HOST + "/reader/skip/",
+    dataType: "json",
+    data: params,
+    beforeSend: function(xhr) {
+        xhr.setRequestHeader("Authorization", "Token " + AUTH_TOKEN);
+    }
+  }).done(function(data) {
+    console.log(data)
+    window.location = "/"
+  }).fail(function(data) {
+    console.log(data.responseText)
+  });
+}
+
 function submitReview() {
   if ($('#skill').val().length != 0 && $('#community').val().length != 0 && $('#passion').val().length != 0) {
     // do nothing
@@ -119,6 +139,7 @@ function logout() {
 
 $('#logout').click(logout);
 $('#submit').click(submitReview);
+$('#skip').click(skip);
 
 $(document).ready(() => {
   if (AUTH_TOKEN == null)
@@ -173,6 +194,10 @@ listener.simple_combo("enter", function() {
 
 listener.simple_combo("meta enter", function() {
   $("#submit").click()
+});
+
+listener.simple_combo("meta right", function() {
+  $("#skip").click()
 });
 
 listener.simple_combo("r", function() {

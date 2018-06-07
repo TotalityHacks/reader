@@ -47,6 +47,12 @@ function getApplication() {
 }
 
 function submitReview() {
+  if ($('#skill').val().length != 0 && $('#community').val().length != 0 && $('#passion').val().length != 0) {
+    // do nothing
+  } else {
+    // Don't allow incomplete forms to be submitted
+    return
+  }
   var params = {
         "application": application.application_id,
         "field_skill": parseInt($('#skill').val(), 10),
@@ -97,7 +103,11 @@ function load() {
   $("#question1").text(`${application.essay_project}`)
   $("#question2").text(`${application.essay_helped}`)
 
-  document.getElementById("resume").src = `https://api.totalityhacks.com/application/resumes/${application.resumes[0]}#view=FitH`
+  if (application.resumes.length != 0)
+    document.getElementById("resume").src = `https://api.totalityhacks.com/application/resumes/${application.resumes[0]}#view=FitH`
+  else
+    document.getElementById("resume").src = `/error/no_resume`
+
 
   $("#skill").focus()
 }
@@ -157,7 +167,12 @@ container.onkeyup = function(e) {
     }
 }
 
+listener.simple_combo("enter", function() {
+  // do nothing
+});
+
 listener.simple_combo("meta enter", function() {
+  $("#submit").click()
   submitReview()
 });
 

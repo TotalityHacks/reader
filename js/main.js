@@ -106,7 +106,7 @@ function load() {
   if (application.resumes.length != 0)
     document.getElementById("resume").src = `https://api.totalityhacks.com/application/resumes/${application.resumes[0]}#view=FitH`
   else
-    document.getElementById("resume").src = `/error/no_resume`
+    document.getElementById("resume").src = `/404.html`
 
 
   $("#skill").focus()
@@ -118,7 +118,7 @@ function logout() {
 }
 
 $('#logout').click(logout);
-$('#submitReview').click(submitReview);
+$('#submit').click(submitReview);
 
 $(document).ready(() => {
   if (AUTH_TOKEN == null)
@@ -173,7 +173,6 @@ listener.simple_combo("enter", function() {
 
 listener.simple_combo("meta enter", function() {
   $("#submit").click()
-  submitReview()
 });
 
 listener.simple_combo("r", function() {

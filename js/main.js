@@ -116,6 +116,9 @@ function load() {
   $("#website").html(`<a target="_blank" href="${application.personal_website}">
                         <ion-icon name="link"></ion-icon> ${application.personal_website}
                       </a>`)
+  $("#hasResume").html(`<a target="_blank" href="https://api.totalityhacks.com/application/resumes/${application.resumes[0]}">
+                        <ion-icon name="document"></ion-icon> View Resume
+                      </a>`)
 
   $("#name").text(`Application #${application.user}`)
   $("#school").text(`${application.school}`)

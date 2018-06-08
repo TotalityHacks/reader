@@ -97,12 +97,16 @@ function submitReview(e) {
 }
 
 function load() {
+  $("#skill").val('');
+  $("#community").val('');
+  $("#passion").val('');
+
   // Populate frontend with application information
   Object.keys(application).forEach((item) => {
     if (application[item].length == 0)
-	$(`#${item}`).css({'display': 'none'})
+    	$(`#${item}`).css({'display': 'none'})
     if (application.resumes.length == 0)
-	$(`#hasResume`).css({'display': 'none'})
+    	$(`#hasResume`).css({'display': 'none'})
   });
 
   application.personal_website = application.personal_website.isUrl() ? application.personal_website : 'http://' + application.personal_website

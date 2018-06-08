@@ -98,7 +98,7 @@ function submitReview() {
 function load() {
   // Populate frontend with application information
   Object.keys(application).forEach((item) => {
-    if (application[item] == "")
+    if (application[item].length == 0)
       $(`#${item}`).css({'display': 'none'})
   });
 

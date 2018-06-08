@@ -66,7 +66,8 @@ function skip() {
   });
 }
 
-function submitReview() {
+function submitReview(e) {
+  if (e) e.preventDefault();
   if ($('#skill').val().length != 0 && $('#community').val().length != 0 && $('#passion').val().length != 0) {
     // do nothing
   } else {
@@ -89,7 +90,7 @@ function submitReview() {
     }
   }).done(function(data) {
     console.log(data)
-    window.location = "/"
+    getApplication()
   }).fail(function(data) {
     console.log(data.responseText)
   });

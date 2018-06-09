@@ -132,9 +132,9 @@ function load() {
   $("#question2").text(`${application.essay_helped}`)
 
   if (application.resumes.length != 0)
-    document.getElementById("resume").src = `https://api.totalityhacks.com/application/resumes/${application.resumes[0]}#view=FitH`
+    document.getElementById("resumeViewer").src = `https://api.totalityhacks.com/application/resumes/${application.resumes[0]}#view=FitH`
   else
-    document.getElementById("resume").src = `/404.html`
+    document.getElementById("resumeViewer").src = `/404.html`
 
   if (application.personal_website.length != 0)
     document.getElementById("web").src = application.personal_website

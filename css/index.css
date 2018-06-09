@@ -323,7 +323,7 @@ textarea:focus {
     border: 1px solid #e60c88;
 }
 
-#resume {
+#resumeViewer {
     position: absolute;
     width: 100%;
     height: 100%;

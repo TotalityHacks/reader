@@ -105,8 +105,6 @@ function load() {
   Object.keys(application).forEach((item) => {
     if (application[item].length == 0)
     	$(`#${item}`).css({'display': 'none'})
-    if (application.resumes.length == 0)
-    	$(`#hasResume`).css({'display': 'none'})
   });
 
   application.personal_website = application.personal_website.isUrl() ? application.personal_website : 'http://' + application.personal_website
@@ -120,10 +118,10 @@ function load() {
   $("#linkedin").html(`<a target="_blank" href="https://linkedin.com/in/${application.linkedin}">
                         <ion-icon name="logo-linkedin"></ion-icon> @${application.linkedin}
                        </a>`)
-  $("#website").html(`<a target="_blank" href="${application.personal_website}">
+  $("#personal_website").html(`<a target="_blank" href="${application.personal_website}">
                         <ion-icon name="link"></ion-icon> ${application.personal_website}
                       </a>`)
-  $("#hasResume").html(`<a target="_blank" href="https://api.totalityhacks.com/application/resumes/${application.resumes[0]}">
+  $("#resume").html(`<a target="_blank" href="https://api.totalityhacks.com/application/resumes/${application.resumes[0]}">
                         <ion-icon name="document"></ion-icon> View Resume
                       </a>`)
 
@@ -218,11 +216,11 @@ listener.simple_combo("meta right", function() {
 
 // Toggle resume full screen view
 listener.simple_combo("r", function() {
-  if ($("#resume").css("display") == "none") {
+  if ($("#resumeViewer").css("display") == "none") {
     $("iframe").css({'display': 'none'})
-    $("#resume").css({'display': 'block'})
+    $("#resumeViewer").css({'display': 'block'})
   } else {
-    $("#resume").css({'display': 'none'})
+    $("#resumeViewer").css({'display': 'none'})
   }
 });
 

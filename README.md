@@ -1,6 +1,17 @@
 # Reader
 Application reader.
 
+### Installation
+In ```js/env.js```, change the following variable to your [```madras```](https://github.com/TotalityHacks/madras) base URL.
+```
+const HOST = 'XXXXXXXX'
+```
+
+Host the website using a simple static server.
+```
+python -m SimpleHTTPServer
+```
+
 ### Keybindings
 ```Cmd + Enter```: Submits an application review and moves on to the next application.
 

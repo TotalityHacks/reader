@@ -105,6 +105,8 @@ function load() {
   Object.keys(application).forEach((item) => {
     if (application[item].length == 0)
     	$(`#${item}`).css({'display': 'none'})
+    else
+      $(`#${item}`).css({'display': 'block'})
   });
 
   application.personal_website = application.personal_website.isUrl() ? application.personal_website : 'http://' + application.personal_website

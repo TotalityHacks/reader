@@ -5,13 +5,12 @@
         <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/pills/1.0.1/pills.min.css"/>
         <link rel="stylesheet" type="text/css" href="css/index.css"/>
         <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta charset="utf-8"/>
     </head>
     <body>
         <div id="no_js">
             <a id="lr_logo" href="#"><img src="img/svg-white.svg" alt="Totality Logo"/></a>
-            You must have JavaScript enabled to use the TotalityHacks registration system.
-            <br/>
-            If you cannot use JavaScript, please contact <a href="mailto:hello@totalityhacks.com">hello@totalityhacks.com</a> for assistance.
+            You must have JavaScript enabled to use the TotalityHacks application reader system.
         </div>
 
         <iframe id="resumeViewer"></iframe>
@@ -37,9 +36,9 @@
                   <span id="resume" class="social"></span>
 
                   <div id="assessment">
-                      <input type="text" maxlength="1" id="skill" placeholder="#" autocomplete="off" required/> Skill (50%)<br />
-                      <input type="text" maxlength="1" id="community" placeholder="#" autocomplete="off" required/> Community (25%)<br />
-                      <input type="text" maxlength="1" id="passion" placeholder="#" autocomplete="off" required/> Passion (25%)<br />
+                      <input type="number" min="0" max="5" id="skill" placeholder="#" autocomplete="off" required/> Skill (50%)<br />
+                      <input type="number" min="0" max="5" id="community" placeholder="#" autocomplete="off" required/> Community (25%)<br />
+                      <input type="number" min="0" max="5" id="passion" placeholder="#" autocomplete="off" required/> Passion (25%)<br />
                   </div>
 
                   <button id="submit" class="btn">
